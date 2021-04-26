@@ -15,8 +15,10 @@ Requirements to fetch a user
 2) fetch ALL user's details when any of the following is used as the search criteria : email, phoneNo, username.
 
 NOTE: *all your xml request and response when using SOAP UI to test should be in capital letters and underscore should separate names
-e.g
-<REQUEST>
-  <FIRST_NAME>Abubakar</FIRST_NAME>
-  <EMAIL>sample string 1</EMAIL>
-</REQUEST> 
+e.g 
+<pre>
+&ltREQUEST&gt
+  &ltFIRST_NAME&gtAbubakar&lt/FIRST_NAME&gt
+  &ltEMAIL&gtsample string 1&lt/EMAIL&gt
+&lt/REQUEST&gt
+</pre>
