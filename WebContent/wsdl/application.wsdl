@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ApplicationService" targetNamespace="http://application.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://application.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://application.com/" schemaLocation="application_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="fetchUserResponse">
+    <wsdl:part name="parameters" element="tns:fetchUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUserResponse">
+    <wsdl:part name="parameters" element="tns:createUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUser">
+    <wsdl:part name="parameters" element="tns:createUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchUser">
+    <wsdl:part name="parameters" element="tns:fetchUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part name="Exception" element="tns:Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IApplication">
+    <wsdl:operation name="createUser">
+      <wsdl:input name="createUser" message="tns:createUser">
+    </wsdl:input>
+      <wsdl:output name="createUserResponse" message="tns:createUserResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchUser">
+      <wsdl:input name="fetchUser" message="tns:fetchUser">
+    </wsdl:input>
+      <wsdl:output name="fetchUserResponse" message="tns:fetchUserResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ApplicationServiceSoapBinding" type="tns:IApplication">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createUser">
+      <soap12:operation soapAction="urn:CreateUser" style="document"/>
+      <wsdl:input name="createUser">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createUserResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap12:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchUser">
+      <soap12:operation soapAction="urn:FetchUser" style="document"/>
+      <wsdl:input name="fetchUser">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="fetchUserResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap12:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ApplicationService">
+    <wsdl:port name="ApplicationPort" binding="tns:ApplicationServiceSoapBinding">
+      <soap12:address location="http://localhost:8080/UserTest/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
