@@ -1,5 +1,5 @@
 # SOAP-Webservice
-Intern task to create a SOAP web service(NYSC) | by Mr Wizdom August 2019
+Task to create a SOAP web service(NYSC) | by Mr Wizdom August 2019
 create a SOAP web service with 2 endpoints
 1) create a user and 2) to fetch a user
 
